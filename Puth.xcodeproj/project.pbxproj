@@ -13,6 +13,11 @@
 		4E0ECDE7215B38B5007276E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E0ECDE5215B38B5007276E4 /* LaunchScreen.storyboard */; };
 		4E0ECDEF215B3BD7007276E4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0ECDEE215B3BD7007276E4 /* SignInViewController.swift */; };
 		4E0ECDF1215B4084007276E4 /* SignUPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0ECDF0215B4084007276E4 /* SignUPViewController.swift */; };
+		4EF6C26A215F2E83009815EF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF6C269215F2E83009815EF /* HomeViewController.swift */; };
+		4EF6C26C215F2E8C009815EF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF6C26B215F2E8C009815EF /* SearchViewController.swift */; };
+		4EF6C26E215F2E94009815EF /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF6C26D215F2E94009815EF /* CameraViewController.swift */; };
+		4EF6C270215F2E9E009815EF /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF6C26F215F2E9E009815EF /* ActivityViewController.swift */; };
+		4EF6C272215F2EA8009815EF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF6C271215F2EA8009815EF /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		4E0ECDE8215B38B5007276E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E0ECDEE215B3BD7007276E4 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		4E0ECDF0215B4084007276E4 /* SignUPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUPViewController.swift; sourceTree = "<group>"; };
+		4EF6C269215F2E83009815EF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		4EF6C26B215F2E8C009815EF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		4EF6C26D215F2E94009815EF /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		4EF6C26F215F2E9E009815EF /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		4EF6C271215F2EA8009815EF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +69,11 @@
 				4E0ECDDC215B38B4007276E4 /* AppDelegate.swift */,
 				4E0ECDEE215B3BD7007276E4 /* SignInViewController.swift */,
 				4E0ECDF0215B4084007276E4 /* SignUPViewController.swift */,
+				4EF6C269215F2E83009815EF /* HomeViewController.swift */,
+				4EF6C26B215F2E8C009815EF /* SearchViewController.swift */,
+				4EF6C26D215F2E94009815EF /* CameraViewController.swift */,
+				4EF6C26F215F2E9E009815EF /* ActivityViewController.swift */,
+				4EF6C271215F2EA8009815EF /* ProfileViewController.swift */,
 				4E0ECDE0215B38B4007276E4 /* Main.storyboard */,
 				4E0ECDE3215B38B5007276E4 /* Assets.xcassets */,
 				4E0ECDE5215B38B5007276E4 /* LaunchScreen.storyboard */,
@@ -138,9 +153,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EF6C26C215F2E8C009815EF /* SearchViewController.swift in Sources */,
 				4E0ECDEF215B3BD7007276E4 /* SignInViewController.swift in Sources */,
 				4E0ECDF1215B4084007276E4 /* SignUPViewController.swift in Sources */,
 				4E0ECDDD215B38B4007276E4 /* AppDelegate.swift in Sources */,
+				4EF6C270215F2E9E009815EF /* ActivityViewController.swift in Sources */,
+				4EF6C26A215F2E83009815EF /* HomeViewController.swift in Sources */,
+				4EF6C272215F2EA8009815EF /* ProfileViewController.swift in Sources */,
+				4EF6C26E215F2E94009815EF /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
