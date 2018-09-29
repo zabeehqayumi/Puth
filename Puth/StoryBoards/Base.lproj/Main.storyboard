@@ -38,7 +38,7 @@
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="cif-Bw-Fwt"/>
                                             <constraint firstAttribute="height" constant="30" id="jG0-WP-BZx"/>
                                         </constraints>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -48,7 +48,7 @@
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="J3n-kE-y9N"/>
                                             <constraint firstAttribute="height" constant="30" id="tKM-Ed-ZZN"/>
                                         </constraints>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
@@ -68,7 +68,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="gabfest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKe-Cg-H31">
-                                <rect key="frame" x="123" y="126" width="129.33333333333337" height="48"/>
+                                <rect key="frame" x="123.00000000000001" y="126" width="129.33333333333337" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -88,6 +88,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="VcE-jN-hfB" id="nrA-Zs-9R6"/>
+                        <outlet property="passwordTextField" destination="uZB-dB-jg6" id="lBX-Co-Sma"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -189,10 +193,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YXd-OB-i5z"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="FrG-LE-7sa" id="6E4-yP-9yr"/>
+                        <outlet property="passwordTextField" destination="rm5-Rm-xmE" id="BE7-BD-BqQ"/>
+                        <outlet property="profilePicture" destination="zRo-0f-ZaB" id="xPW-rS-tWC"/>
+                        <outlet property="userNameTextField" destination="LkV-IC-GcP" id="sft-9L-8tR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GP4-VL-lQf" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="885.60000000000002" y="132.26600985221674"/>
+            <point key="canvasLocation" x="137" y="821"/>
         </scene>
         <!--Tabbarid-->
         <scene sceneID="5E3-r0-R44">
@@ -200,7 +210,7 @@
                 <viewControllerPlaceholder storyboardName="Tab" referencedIdentifier="Tabbarid" id="7DT-wY-Zuy" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYV-3b-Eis" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1732" y="132"/>
+            <point key="canvasLocation" x="1102" y="423"/>
         </scene>
     </scenes>
     <resources>

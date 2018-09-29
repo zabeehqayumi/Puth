@@ -79,13 +79,18 @@
 			isa = PBXGroup;
 			children = (
 				4E0ECDDC215B38B4007276E4 /* AppDelegate.swift */,
-				4E0ECDEE215B3BD7007276E4 /* SignInViewController.swift */,
-				4E0ECDF0215B4084007276E4 /* SignUPViewController.swift */,
-				4EF6C269215F2E83009815EF /* HomeViewController.swift */,
-				4EF6C26B215F2E8C009815EF /* SearchViewController.swift */,
-				4EF6C26D215F2E94009815EF /* CameraViewController.swift */,
-				4EF6C26F215F2E9E009815EF /* ActivityViewController.swift */,
-				4EF6C271215F2EA8009815EF /* ProfileViewController.swift */,
+				4EF6C284215F4EB9009815EF /* ViewControllers */,
+				4EF6C283215F4E7A009815EF /* StoryBoards */,
+				4E0ECDE3215B38B5007276E4 /* Assets.xcassets */,
+				4E0ECDE5215B38B5007276E4 /* LaunchScreen.storyboard */,
+				4E0ECDE8215B38B5007276E4 /* Info.plist */,
+			);
+			path = Puth;
+			sourceTree = "<group>";
+		};
+		4EF6C283215F4E7A009815EF /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
 				4E0ECDE0215B38B4007276E4 /* Main.storyboard */,
 				4EF6C273215F3BA9009815EF /* Tab.storyboard */,
 				4EF6C276215F4021009815EF /* Home.storyboard */,
@@ -93,11 +98,22 @@
 				4EF6C27B215F4110009815EF /* Camera.storyboard */,
 				4EF6C27E215F4147009815EF /* Activity.storyboard */,
 				4EF6C280215F4182009815EF /* Profile.storyboard */,
-				4E0ECDE3215B38B5007276E4 /* Assets.xcassets */,
-				4E0ECDE5215B38B5007276E4 /* LaunchScreen.storyboard */,
-				4E0ECDE8215B38B5007276E4 /* Info.plist */,
 			);
-			path = Puth;
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		4EF6C284215F4EB9009815EF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4E0ECDEE215B3BD7007276E4 /* SignInViewController.swift */,
+				4E0ECDF0215B4084007276E4 /* SignUPViewController.swift */,
+				4EF6C269215F2E83009815EF /* HomeViewController.swift */,
+				4EF6C26B215F2E8C009815EF /* SearchViewController.swift */,
+				4EF6C26D215F2E94009815EF /* CameraViewController.swift */,
+				4EF6C26F215F2E9E009815EF /* ActivityViewController.swift */,
+				4EF6C271215F2EA8009815EF /* ProfileViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
