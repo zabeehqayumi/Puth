@@ -19,6 +19,11 @@
 		4EF6C270215F2E9E009815EF /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF6C26F215F2E9E009815EF /* ActivityViewController.swift */; };
 		4EF6C272215F2EA8009815EF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF6C271215F2EA8009815EF /* ProfileViewController.swift */; };
 		4EF6C275215F3BA9009815EF /* Tab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EF6C273215F3BA9009815EF /* Tab.storyboard */; };
+		4EF6C278215F4021009815EF /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EF6C276215F4021009815EF /* Home.storyboard */; };
+		4EF6C27A215F40B2009815EF /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EF6C279215F40B2009815EF /* Search.storyboard */; };
+		4EF6C27D215F4110009815EF /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EF6C27B215F4110009815EF /* Camera.storyboard */; };
+		4EF6C27F215F4147009815EF /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EF6C27E215F4147009815EF /* Activity.storyboard */; };
+		4EF6C282215F4182009815EF /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EF6C280215F4182009815EF /* Profile.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +41,11 @@
 		4EF6C26F215F2E9E009815EF /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		4EF6C271215F2EA8009815EF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4EF6C274215F3BA9009815EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Puth/Base.lproj/Tab.storyboard; sourceTree = "<group>"; };
+		4EF6C277215F4021009815EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Puth/Puth/Base.lproj/Home.storyboard; sourceTree = "<group>"; };
+		4EF6C279215F40B2009815EF /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		4EF6C27C215F4110009815EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Puth/Puth/Base.lproj/Camera.storyboard; sourceTree = "<group>"; };
+		4EF6C27E215F4147009815EF /* Activity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
+		4EF6C281215F4182009815EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Puth/Puth/Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +88,11 @@
 				4EF6C271215F2EA8009815EF /* ProfileViewController.swift */,
 				4E0ECDE0215B38B4007276E4 /* Main.storyboard */,
 				4EF6C273215F3BA9009815EF /* Tab.storyboard */,
+				4EF6C276215F4021009815EF /* Home.storyboard */,
+				4EF6C279215F40B2009815EF /* Search.storyboard */,
+				4EF6C27B215F4110009815EF /* Camera.storyboard */,
+				4EF6C27E215F4147009815EF /* Activity.storyboard */,
+				4EF6C280215F4182009815EF /* Profile.storyboard */,
 				4E0ECDE3215B38B5007276E4 /* Assets.xcassets */,
 				4E0ECDE5215B38B5007276E4 /* LaunchScreen.storyboard */,
 				4E0ECDE8215B38B5007276E4 /* Info.plist */,
@@ -144,9 +159,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EF6C275215F3BA9009815EF /* Tab.storyboard in Resources */,
+				4EF6C27D215F4110009815EF /* Camera.storyboard in Resources */,
+				4EF6C278215F4021009815EF /* Home.storyboard in Resources */,
 				4E0ECDE7215B38B5007276E4 /* LaunchScreen.storyboard in Resources */,
 				4E0ECDE4215B38B5007276E4 /* Assets.xcassets in Resources */,
+				4EF6C27A215F40B2009815EF /* Search.storyboard in Resources */,
+				4EF6C282215F4182009815EF /* Profile.storyboard in Resources */,
 				4E0ECDE2215B38B4007276E4 /* Main.storyboard in Resources */,
+				4EF6C27F215F4147009815EF /* Activity.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +213,30 @@
 				4EF6C274215F3BA9009815EF /* Base */,
 			);
 			name = Tab.storyboard;
+			sourceTree = "<group>";
+		};
+		4EF6C276215F4021009815EF /* Home.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4EF6C277215F4021009815EF /* Base */,
+			);
+			name = Home.storyboard;
+			sourceTree = "<group>";
+		};
+		4EF6C27B215F4110009815EF /* Camera.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4EF6C27C215F4110009815EF /* Base */,
+			);
+			name = Camera.storyboard;
+			sourceTree = "<group>";
+		};
+		4EF6C280215F4182009815EF /* Profile.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4EF6C281215F4182009815EF /* Base */,
+			);
+			name = Profile.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
