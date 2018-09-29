@@ -18,6 +18,7 @@
 		4EF6C26E215F2E94009815EF /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF6C26D215F2E94009815EF /* CameraViewController.swift */; };
 		4EF6C270215F2E9E009815EF /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF6C26F215F2E9E009815EF /* ActivityViewController.swift */; };
 		4EF6C272215F2EA8009815EF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF6C271215F2EA8009815EF /* ProfileViewController.swift */; };
+		4EF6C275215F3BA9009815EF /* Tab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EF6C273215F3BA9009815EF /* Tab.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		4EF6C26D215F2E94009815EF /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		4EF6C26F215F2E9E009815EF /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		4EF6C271215F2EA8009815EF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4EF6C274215F3BA9009815EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Puth/Base.lproj/Tab.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				4EF6C26F215F2E9E009815EF /* ActivityViewController.swift */,
 				4EF6C271215F2EA8009815EF /* ProfileViewController.swift */,
 				4E0ECDE0215B38B4007276E4 /* Main.storyboard */,
+				4EF6C273215F3BA9009815EF /* Tab.storyboard */,
 				4E0ECDE3215B38B5007276E4 /* Assets.xcassets */,
 				4E0ECDE5215B38B5007276E4 /* LaunchScreen.storyboard */,
 				4E0ECDE8215B38B5007276E4 /* Info.plist */,
@@ -140,6 +143,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EF6C275215F3BA9009815EF /* Tab.storyboard in Resources */,
 				4E0ECDE7215B38B5007276E4 /* LaunchScreen.storyboard in Resources */,
 				4E0ECDE4215B38B5007276E4 /* Assets.xcassets in Resources */,
 				4E0ECDE2215B38B4007276E4 /* Main.storyboard in Resources */,
@@ -181,6 +185,14 @@
 				4E0ECDE6215B38B5007276E4 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		4EF6C273215F3BA9009815EF /* Tab.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4EF6C274215F3BA9009815EF /* Base */,
+			);
+			name = Tab.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
