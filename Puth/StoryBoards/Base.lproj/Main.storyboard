@@ -157,6 +157,7 @@
                                             <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         </state>
                                         <connections>
+                                            <action selector="signUpButtonPressed:" destination="r0e-d3-Cis" eventType="touchUpInside" id="ZYe-Uh-pAZ"/>
                                             <segue destination="7DT-wY-Zuy" kind="presentation" id="K4C-cv-w8H"/>
                                         </connections>
                                     </button>

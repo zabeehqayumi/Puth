@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         //changed the tint color of tab bar :)
-      //  UITabBar.appearance().tintColor = .black
+      UITabBar.appearance().tintColor = .black
+        
+        FirebaseApp.configure()
+//        
+//        let myDatabase = Database.database().reference()
+//        myDatabase.setValue("Hello, Firebase again and again!")
+        
         return true
     }
 
