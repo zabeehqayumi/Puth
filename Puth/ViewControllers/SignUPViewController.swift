@@ -61,13 +61,21 @@ class SignUPViewController: UIViewController {
         passwordTextField.layer.addSublayer(bottomLayerPass)
         
         
+        // Uploading image
         
-        
-        
-        
-        
+    
+       let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignUPViewController.handleSelectProfileImage))
+        profilePicture.addGestureRecognizer(tapGesture)
+        profilePicture.isUserInteractionEnabled = true
         
 
+
+    }
+    
+   @objc func handleSelectProfileImage(){
+    let pickerController = UIImagePickerController()
+    present(pickerController, animated: true, completion: nil)
+    
     }
     
     @IBAction func dismiss_OnClick(_ sender: Any) {
