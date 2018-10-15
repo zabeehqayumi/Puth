@@ -14,6 +14,7 @@ import FirebaseStorage
 class SignUPViewController: UIViewController {
     
     var selectedImage : UIImage?
+    var globalUrl : String = ""
 
     
     @IBOutlet weak var profilePicture: UIImageView!
@@ -111,15 +112,16 @@ class SignUPViewController: UIViewController {
                         }
                         
                         storageRef.downloadURL(completion: { (url, error) in
-                            let profileImageUrl = url?.absoluteString
+                            if let profileImageUrl = url?.absoluteString{
+                                self.globalUrl = profileImageUrl
+                            }
                             
 
                             // creating username and email address in database realtime of firebase
                             
-                            let ref = Database.database().reference()
-                            let userReference = ref.child("users").child((user?.user.uid)!)
+              
                             
-                            userReference.setValue(["username": self.userNameTextField.text!, "email": self.emailTextField.text!, "profileImageUrl": profileImageUrl])
+
 
                         })
                         
@@ -132,6 +134,11 @@ class SignUPViewController: UIViewController {
                     
         
                 }
+            
+            let ref = Database.database().reference()
+            let userReference = ref.child("users").child((user?.user.uid)!)
+            
+            userReference.setValue(["username": self.userNameTextField.text!, "email": self.emailTextField.text!, "profileImageUrl": self.globalUrl])
 
     
             }
