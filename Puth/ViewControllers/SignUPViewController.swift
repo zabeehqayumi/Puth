@@ -9,8 +9,11 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import FirebaseStorage
 
 class SignUPViewController: UIViewController {
+    
+    var selectedImage : UIImage?
 
     
     @IBOutlet weak var profilePicture: UIImageView!
@@ -18,9 +21,12 @@ class SignUPViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+    
         //Profile Picture
         profilePicture.layer.cornerRadius = 40 
         profilePicture.clipsToBounds = true
@@ -74,6 +80,7 @@ class SignUPViewController: UIViewController {
     
    @objc func handleSelectProfileImage(){
     let pickerController = UIImagePickerController()
+    pickerController.delegate = self
     present(pickerController, animated: true, completion: nil)
     
     }
@@ -89,21 +96,58 @@ class SignUPViewController: UIViewController {
             if error != nil{
                 print(error!)
             }
-            else{
+
+                // storing image to storage of firebase
+            
+            
+                let storageRef = Storage.storage().reference(forURL: "gs://puth-d7c50.appspot.com").child("profile_image").child((user?.user.uid)!)
                 
-                // creating username and email address in database realtime of firebase
                 
-                let ref = Database.database().reference()
-                let userReference = ref.child("users").child((user?.user.uid)!)
-                
-                userReference.setValue(["username": self.userNameTextField.text!, "email": self.emailTextField.text!])
-              
-            }
-    
-            }
+                if let profileImage = self.selectedImage, let imageData = self.selectedImage?.jpegData(compressionQuality: 0.1){
+                    
+                    storageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
+                        if error != nil{
+                            return
+                        }
+                        
+                        storageRef.downloadURL(completion: { (url, error) in
+                            let profileImageUrl = url?.absoluteString
+                            
+
+                            // creating username and email address in database realtime of firebase
+                            
+                            let ref = Database.database().reference()
+                            let userReference = ref.child("users").child((user?.user.uid)!)
+                            
+                            userReference.setValue(["username": self.userNameTextField.text!, "email": self.emailTextField.text!, "profileImageUrl": profileImageUrl])
+
+                        })
+                        
+                        
+                        
+                        
+                    })
+                    
+            
+                    
         
+                }
+
     
+            }
+
     }
     
 
+}
+
+extension SignUPViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let extractImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            profilePicture.image = extractImage
+            selectedImage = extractImage
+        }
+        dismiss(animated: true, completion: nil)
+    }
 }
