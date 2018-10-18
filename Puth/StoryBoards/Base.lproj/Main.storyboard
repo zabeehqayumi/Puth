@@ -198,6 +198,7 @@
                         <outlet property="emailTextField" destination="FrG-LE-7sa" id="6E4-yP-9yr"/>
                         <outlet property="passwordTextField" destination="rm5-Rm-xmE" id="BE7-BD-BqQ"/>
                         <outlet property="profilePicture" destination="zRo-0f-ZaB" id="xPW-rS-tWC"/>
+                        <outlet property="signUpButton" destination="zo3-9z-fah" id="b0A-Kf-HaB"/>
                         <outlet property="userNameTextField" destination="LkV-IC-GcP" id="sft-9L-8tR"/>
                     </connections>
                 </viewController>

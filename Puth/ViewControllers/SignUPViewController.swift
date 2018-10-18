@@ -16,6 +16,7 @@ class SignUPViewController: UIViewController {
     var selectedImage : UIImage?
     var globalUrl : String = ""
 
+    @IBOutlet weak var signUpButton: UIButton!
     
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var userNameTextField: UITextField!
@@ -25,6 +26,8 @@ class SignUPViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         
     
@@ -75,9 +78,36 @@ class SignUPViewController: UIViewController {
         profilePicture.addGestureRecognizer(tapGesture)
         profilePicture.isUserInteractionEnabled = true
         
+        // calling
+        handleTextField()
 
 
     }
+    
+    func handleTextField(){
+        userNameTextField.addTarget(self, action: #selector(SignUPViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
+        emailTextField.addTarget(self, action: #selector(SignUPViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
+        passwordTextField.addTarget(self, action: #selector(SignUPViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
+        
+    }
+    
+    @objc
+    func textFieldDidChange(){
+        
+        guard let username = userNameTextField.text, !username.isEmpty, let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
+            signUpButton.setTitleColor(UIColor.lightText, for: UIControl.State.normal)
+            signUpButton.isEnabled = false
+            return
+        }
+        
+        signUpButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
+        signUpButton.isEnabled = true
+        
+        
+        
+        
+    }
+    
     
    @objc func handleSelectProfileImage(){
     let pickerController = UIImagePickerController()
@@ -91,59 +121,71 @@ class SignUPViewController: UIViewController {
     }
     
     @IBAction func signUpButtonPressed(_ sender: Any) {
+        self.createUser()
         
-        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) {
-            (user, error) in
-            if error != nil{
-                print(error!)
-            }
-
-                // storing image to storage of firebase
-            
-            
-                let storageRef = Storage.storage().reference(forURL: "gs://puth-d7c50.appspot.com").child("profile_image").child((user?.user.uid)!)
-                
-                
-                if let profileImage = self.selectedImage, let imageData = self.selectedImage?.jpegData(compressionQuality: 0.1){
-                    
-                    storageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
-                        if error != nil{
-                            return
-                        }
-                        
-                        storageRef.downloadURL(completion: { (url, error) in
-                            if let profileImageUrl = url?.absoluteString{
-                                self.globalUrl = profileImageUrl
-                            }
-                            
-
-                            // creating username and email address in database realtime of firebase
-                            
-              
-                            
-
-
-                        })
-                        
-                        
-                        
-                        
-                    })
-                    
-            
-                    
-        
-                }
-            
-            let ref = Database.database().reference()
-            let userReference = ref.child("users").child((user?.user.uid)!)
-            
-            userReference.setValue(["username": self.userNameTextField.text!, "email": self.emailTextField.text!, "profileImageUrl": self.globalUrl])
-
-    
-            }
-
     }
+    
+    func createUser() {
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        Auth.auth().createUser(withEmail: email,
+                               password: password,
+                               completion: { [weak self] (user, error) in
+                                if error != nil {
+                                    print(error!)
+                                    return
+                                }
+                                guard let userID = user?.user.uid else { return }
+                                
+                                print("## did create user")
+                                // once created, upload profile image if able
+                                if let profileImage = self?.selectedImage,
+                                    let imageData = profileImage.jpegData(compressionQuality: 0.1) {
+                                    self?.uploadPhoto(imageData, userID)
+                                }
+        })
+    }
+    
+    func uploadPhoto(_ imageData: Data, _ userID: String) {
+        // storing image to storage of firebase
+        let storageRef = Storage.storage().reference(forURL: "gs://puth-d7c50.appspot.com").child("profile_image/\(String(describing: userID))")
+        
+        // user successfully created, now set up image data
+        if let profileImage = self.selectedImage,
+            let imageData = profileImage.jpegData(compressionQuality: 0.1) {
+            self.putImageData(storageRef, imageData, { [weak self] (url, error) in
+                print("## got URL response")
+                if let profileImageUrl = url?.absoluteString {
+                    
+                    // self?.globalUrl = profileImageURL
+                    
+                    let ref = Database.database().reference()
+                    let userReference = ref.child("users").child(userID)
+                    userReference.setValue(["username": self?.userNameTextField.text!,
+                                            "email": self?.emailTextField.text!,
+                                            "profileImageUrl": profileImageUrl]) // self?.globalUrl])
+                    
+                    // creating username and email address in database realtime of firebase
+                    // <extra things for Zab to do here>
+                }
+            })
+        }
+    }
+    
+    func putImageData(_ storageRef: StorageReference,
+                      _ imageData: Data,
+                      _ completion: @escaping (_ url: URL?, _ error: Error?) -> Void) {
+        // storing image to storage of firebase
+        storageRef.putData(imageData,
+                           metadata: nil,
+                           completion: { (metadata, error) in
+                            // storing image to storage of firebase
+                            print("## finished putData ")
+                            storageRef.downloadURL(completion: completion)
+        })
+    }
+    
     
 
 }
@@ -158,4 +200,51 @@ extension SignUPViewController: UIImagePickerControllerDelegate, UINavigationCon
         dismiss(animated: true, completion: nil)
     }
 }
+
+
+
+
 //last changes for tonight
+
+
+
+
+//Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) {
+//    (user, error) in
+//    if error != nil{
+//        print(error!)
+//    }
+//
+//    // storing image to storage of firebase
+//
+//
+//    let storageRef = Storage.storage().reference(forURL: "gs://puth-d7c50.appspot.com").child("profile_image").child((user?.user.uid)!)
+//
+//
+//    if let profileImage = self.selectedImage, let imageData = self.selectedImage?.jpegData(compressionQuality: 0.1){
+//
+//        storageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
+//            if error != nil{
+//                return
+//            }
+//
+//            storageRef.downloadURL(completion: { (url, error) in
+//                if let profileImageUrl = url?.absoluteString{
+//                    self.globalUrl = profileImageUrl
+//                }
+//
+//                // creating username and email address in database realtime of firebase
+//
+//            })
+//
+//        })
+//
+//
+//    }
+//
+//    let ref = Database.database().reference()
+//    let userReference = ref.child("users").child((user?.user.uid)!)
+//    userReference.setValue(["username": self.userNameTextField.text!, "email": self.emailTextField.text!, "profileImageUrl": self.globalUrl])
+//
+//
+//}
