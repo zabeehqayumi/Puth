@@ -7,10 +7,17 @@
 //
 
 import UIKit
+import FirebaseAuth
+import Firebase
+import FirebaseStorage
+
 
 class SignInViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
+    
+    @IBOutlet weak var signInButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,13 +43,63 @@ class SignInViewController: UIViewController {
         passwordTextField.layer.addSublayer(bottomLayer1)
         
         
+        // calling
+        
+        handleTextField()
         
 
     }
     
     
+    func handleTextField(){
+        emailTextField.addTarget(self, action: #selector(SignUPViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
+        passwordTextField.addTarget(self, action: #selector(SignUPViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
+        
+    }
+    
+    @objc
+    func textFieldDidChange(){
+        
+        guard let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
+            signInButton.setTitleColor(UIColor.lightText, for: UIControl.State.normal)
+            signInButton.isEnabled = false
+            return
+        }
+        signInButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
+        signInButton.isEnabled = true
+        
+        
+        
+        
+    }
+    
+    
+    func notifyUser(){
+        let alert = UIAlertController(title: "Invalid Username or Password!", message: "email or password you entered does not match our database. ", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Try again", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
     
 
-
+    
+    
+    @IBAction func signInButtonPressed(_ sender: Any) {
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+            if error != nil{
+                self.notifyUser()
+                
+                return
+            }else{
+                // navigating to
+                self.performSegue(withIdentifier: "navigatetoTabbedVC", sender: nil)
+                
+            }
+            
+ 
+            
+            
+        }
+    }
 
 }

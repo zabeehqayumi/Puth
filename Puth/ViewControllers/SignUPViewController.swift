@@ -144,6 +144,7 @@ class SignUPViewController: UIViewController {
                                     let imageData = profileImage.jpegData(compressionQuality: 0.1) {
                                     self?.uploadPhoto(imageData, userID)
                                 }
+                                
         })
     }
     
@@ -152,6 +153,7 @@ class SignUPViewController: UIViewController {
         let storageRef = Storage.storage().reference(forURL: "gs://puth-d7c50.appspot.com").child("profile_image/\(String(describing: userID))")
         
         // user successfully created, now set up image data
+        
         if let profileImage = self.selectedImage,
             let imageData = profileImage.jpegData(compressionQuality: 0.1) {
             self.putImageData(storageRef, imageData, { [weak self] (url, error) in
@@ -166,9 +168,11 @@ class SignUPViewController: UIViewController {
                                             "email": self?.emailTextField.text!,
                                             "profileImageUrl": profileImageUrl]) // self?.globalUrl])
                     
-                    // creating username and email address in database realtime of firebase
-                    // <extra things for Zab to do here>
+
                 }
+                
+                self?.performSegue(withIdentifier: "navigatetoTabbedVCSignUP", sender: nil)
+
             })
         }
     }
@@ -183,8 +187,17 @@ class SignUPViewController: UIViewController {
                             // storing image to storage of firebase
                             print("## finished putData ")
                             storageRef.downloadURL(completion: completion)
+                            
+
+                            
         })
+        
+
+        
     }
+    
+    
+
     
     
 

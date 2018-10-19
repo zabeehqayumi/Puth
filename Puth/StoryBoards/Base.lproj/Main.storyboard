@@ -62,7 +62,7 @@
                                             <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         </state>
                                         <connections>
-                                            <segue destination="7DT-wY-Zuy" kind="presentation" id="Ilg-h3-PbL"/>
+                                            <action selector="signInButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZPn-GK-xaY"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -91,6 +91,8 @@
                     <connections>
                         <outlet property="emailTextField" destination="VcE-jN-hfB" id="nrA-Zs-9R6"/>
                         <outlet property="passwordTextField" destination="uZB-dB-jg6" id="lBX-Co-Sma"/>
+                        <outlet property="signInButton" destination="Ssk-Lt-wc7" id="zYK-In-gpd"/>
+                        <segue destination="7DT-wY-Zuy" kind="presentation" identifier="navigatetoTabbedVC" id="a7Z-Fd-x2x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -158,7 +160,6 @@
                                         </state>
                                         <connections>
                                             <action selector="signUpButtonPressed:" destination="r0e-d3-Cis" eventType="touchUpInside" id="ZYe-Uh-pAZ"/>
-                                            <segue destination="7DT-wY-Zuy" kind="presentation" id="K4C-cv-w8H"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -200,6 +201,7 @@
                         <outlet property="profilePicture" destination="zRo-0f-ZaB" id="xPW-rS-tWC"/>
                         <outlet property="signUpButton" destination="zo3-9z-fah" id="b0A-Kf-HaB"/>
                         <outlet property="userNameTextField" destination="LkV-IC-GcP" id="sft-9L-8tR"/>
+                        <segue destination="7DT-wY-Zuy" kind="presentation" identifier="navigatetoTabbedVCSignUP" id="Kgc-Jx-pZf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GP4-VL-lQf" sceneMemberID="firstResponder"/>
@@ -219,6 +221,6 @@
         <image name="placeHolder" width="600" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="K4C-cv-w8H"/>
+        <segue reference="Kgc-Jx-pZf"/>
     </inferredMetricsTieBreakers>
 </document>
