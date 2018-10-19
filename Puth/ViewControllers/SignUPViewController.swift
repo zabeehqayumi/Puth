@@ -10,6 +10,8 @@ import UIKit
 import FirebaseAuth
 import Firebase
 import FirebaseStorage
+import SVProgressHUD
+
 
 class SignUPViewController: UIViewController {
     
@@ -121,7 +123,9 @@ class SignUPViewController: UIViewController {
     }
     
     @IBAction func signUpButtonPressed(_ sender: Any) {
+        SVProgressHUD.show()
         self.createUser()
+        
         
     }
     
@@ -172,6 +176,7 @@ class SignUPViewController: UIViewController {
                 }
                 
                 self?.performSegue(withIdentifier: "navigatetoTabbedVCSignUP", sender: nil)
+                SVProgressHUD.dismiss()
 
             })
         }

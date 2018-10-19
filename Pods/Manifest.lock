@@ -74,12 +74,14 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - Firebase
   - Firebase/Auth
   - Firebase/Database
   - Firebase/Storage
+  - SVProgressHUD
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -96,6 +98,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - SVProgressHUD
 
 SPEC CHECKSUMS:
   Firebase: 6691d47562a780c26281ce8464518faafc90c610
@@ -111,7 +114,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: ecb447a2d142693b2a443a6134f27a3b53158bfb
+PODFILE CHECKSUM: 7d5289f82c3260d1adbf428dcbac40fecc57dbd0
 
 COCOAPODS: 1.5.3

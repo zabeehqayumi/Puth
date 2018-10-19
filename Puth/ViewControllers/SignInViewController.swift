@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import Firebase
 import FirebaseStorage
+import SVProgressHUD
 
 
 class SignInViewController: UIViewController {
@@ -85,15 +86,18 @@ class SignInViewController: UIViewController {
     
     
     @IBAction func signInButtonPressed(_ sender: Any) {
+        SVProgressHUD.show()
+        
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if error != nil{
+                SVProgressHUD.dismiss()
                 self.notifyUser()
                 
                 return
             }else{
                 // navigating to
                 self.performSegue(withIdentifier: "navigatetoTabbedVC", sender: nil)
-                
+                SVProgressHUD.dismiss()
             }
             
  
