@@ -105,5 +105,16 @@ class SignInViewController: UIViewController {
             
         }
     }
+    
+    // Auto log in
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if Auth.auth().currentUser != nil{
+        self.performSegue(withIdentifier: "navigatetoTabbedVC", sender: nil)
+
+        }
+        
+    }
 
 }
