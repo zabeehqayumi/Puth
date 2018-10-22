@@ -94,9 +94,12 @@ class SignInViewController: UIViewController {
     
     @IBAction func signInButtonPressed(_ sender: Any) {
         
+        view.endEditing(true)
+        
         //calling from auth services
         
         AuthServices.signIn(email: emailTextField.text!, password: passwordTextField.text!, onSuccess: {
+            SVProgressHUD.showSuccess(withStatus: "Success")
             self.performSegue(withIdentifier: "navigatetoTabbedVC", sender: nil)
         }, onError: {
             self.notifyUser()

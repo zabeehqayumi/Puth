@@ -131,6 +131,7 @@ class SignUPViewController: UIViewController {
     }
     
     @IBAction func signUpButtonPressed(_ sender: Any) {
+        view.endEditing(true)
         SVProgressHUD.show()
         self.createUser()
         
@@ -183,8 +184,9 @@ class SignUPViewController: UIViewController {
                     
                 }
                 
+                SVProgressHUD.showSuccess(withStatus: "Successfully created")
                 self?.performSegue(withIdentifier: "navigatetoTabbedVCSignUP", sender: nil)
-                SVProgressHUD.dismiss()
+
                 
             })
         }

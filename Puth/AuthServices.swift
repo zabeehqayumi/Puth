@@ -29,7 +29,6 @@ class AuthServices: UIViewController {
                 return
             }
             onSuccess()
-            SVProgressHUD.dismiss()
         }
     }
     
