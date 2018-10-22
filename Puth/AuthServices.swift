@@ -6,7 +6,6 @@
 //  Copyright © 2018 Zabeehullah Qayumi. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import FirebaseAuth
 import Firebase
@@ -14,20 +13,40 @@ import FirebaseStorage
 import SVProgressHUD
 
 
-class AuthServices{
+class AuthServices: UIViewController {
     
-    //  creating the textfields of signIn view controller
+  //  static var shared = AuthServices()
     
-//    let emailTextField = SignInViewController.signInInstance.emailTextField.text
-//    let passwordTextField = SignInViewController.signInInstance.passwordTextField.text
-//
     
-    static var shared = AuthServices()
+ // sign in method
     
-    func signIn() {
-        
-
+    static func signIn(email: String, password: String, onSuccess: @escaping () -> Void, onError: @escaping () -> Void) {
+        SVProgressHUD.show()
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            if error != nil{
+                onError()
+                print(error!.localizedDescription)
+                return
+            }
+            onSuccess()
+            SVProgressHUD.dismiss()
+        }
     }
+    
+    
+   // sign up method
+    
+    
+    
+    static func signUp(username: String, email: String, password: String, onSuccess: @escaping () -> Void, onError: @escaping () -> Void) {
+        SVProgressHUD.show()
+        
+        // do some stuff here
+
+            SVProgressHUD.dismiss()
+        }
+    
+    
     
     
     

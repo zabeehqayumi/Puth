@@ -21,7 +21,7 @@ class SignUPViewController: UIViewController {
     
     var selectedImage : UIImage?
     var globalUrl : String = ""
-
+    
     @IBOutlet weak var signUpButton: UIButton!
     
     @IBOutlet weak var profilePicture: UIImageView!
@@ -36,7 +36,7 @@ class SignUPViewController: UIViewController {
         
         
         
-    
+        
         //Profile Picture
         profilePicture.layer.cornerRadius = 40 
         profilePicture.clipsToBounds = true
@@ -79,17 +79,21 @@ class SignUPViewController: UIViewController {
         
         // Uploading image
         
-    
-       let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignUPViewController.handleSelectProfileImage))
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignUPViewController.handleSelectProfileImage))
         profilePicture.addGestureRecognizer(tapGesture)
         profilePicture.isUserInteractionEnabled = true
         
         // calling
         handleTextField()
         signUpButton.isEnabled = false
-
-
-
+        
+        
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
     func handleTextField(){
@@ -112,16 +116,14 @@ class SignUPViewController: UIViewController {
         signUpButton.isEnabled = true
         
         
-        
-        
     }
     
     
-   @objc func handleSelectProfileImage(){
-    let pickerController = UIImagePickerController()
-    pickerController.delegate = self
-    present(pickerController, animated: true, completion: nil)
-    
+    @objc func handleSelectProfileImage(){
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        present(pickerController, animated: true, completion: nil)
+        
     }
     
     @IBAction func dismiss_OnClick(_ sender: Any) {
@@ -178,12 +180,12 @@ class SignUPViewController: UIViewController {
                                             "email": self?.emailTextField.text!,
                                             "profileImageUrl": profileImageUrl]) // self?.globalUrl])
                     
-
+                    
                 }
                 
                 self?.performSegue(withIdentifier: "navigatetoTabbedVCSignUP", sender: nil)
                 SVProgressHUD.dismiss()
-
+                
             })
         }
     }
@@ -198,20 +200,10 @@ class SignUPViewController: UIViewController {
                             // storing image to storage of firebase
                             print("## finished putData ")
                             storageRef.downloadURL(completion: completion)
-                            
-
-                            
         })
-        
-
         
     }
     
-    
-
-    
-    
-
 }
 
 extension SignUPViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
@@ -224,51 +216,3 @@ extension SignUPViewController: UIImagePickerControllerDelegate, UINavigationCon
         dismiss(animated: true, completion: nil)
     }
 }
-
-
-
-
-//last changes for tonight
-
-
-
-
-//Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) {
-//    (user, error) in
-//    if error != nil{
-//        print(error!)
-//    }
-//
-//    // storing image to storage of firebase
-//
-//
-//    let storageRef = Storage.storage().reference(forURL: "gs://puth-d7c50.appspot.com").child("profile_image").child((user?.user.uid)!)
-//
-//
-//    if let profileImage = self.selectedImage, let imageData = self.selectedImage?.jpegData(compressionQuality: 0.1){
-//
-//        storageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
-//            if error != nil{
-//                return
-//            }
-//
-//            storageRef.downloadURL(completion: { (url, error) in
-//                if let profileImageUrl = url?.absoluteString{
-//                    self.globalUrl = profileImageUrl
-//                }
-//
-//                // creating username and email address in database realtime of firebase
-//
-//            })
-//
-//        })
-//
-//
-//    }
-//
-//    let ref = Database.database().reference()
-//    let userReference = ref.child("users").child((user?.user.uid)!)
-//    userReference.setValue(["username": self.userNameTextField.text!, "email": self.emailTextField.text!, "profileImageUrl": self.globalUrl])
-//
-//
-//}

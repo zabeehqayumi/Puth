@@ -47,12 +47,17 @@ class SignInViewController: UIViewController {
         bottomLayer1.backgroundColor = UIColor(red: 50/255, green: 50/255, blue: 25/255, alpha: 1).cgColor
         passwordTextField.layer.addSublayer(bottomLayer1)
         
-        
         // calling
-        
         handleTextField()
+        // for touching any where of sign in view controller
         
 
+    }
+    
+    // for hiding keyboard
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
     
@@ -77,7 +82,7 @@ class SignInViewController: UIViewController {
     }
     
     
-    func notifyUser(){
+        func notifyUser(){
         let alert = UIAlertController(title: "Invalid Username or Password!", message: "email or password you entered does not match our database. ", preferredStyle: .alert)
         let action = UIAlertAction(title: "Try again", style: .default, handler: nil)
         alert.addAction(action)
@@ -91,31 +96,15 @@ class SignInViewController: UIViewController {
         
         //calling from auth services
         
-       // AuthServices.shared.signIn()
-        
-        SVProgressHUD.show()
-        
-        
-        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
-            if error != nil{
-                SVProgressHUD.dismiss()
-                self.notifyUser()
-                
-                return
-            }else{
-                // navigating to
-                self.performSegue(withIdentifier: "navigatetoTabbedVC", sender: nil)
-                SVProgressHUD.dismiss()
-            }
-
-            
-        }
-        
-
+        AuthServices.signIn(email: emailTextField.text!, password: passwordTextField.text!, onSuccess: {
+            self.performSegue(withIdentifier: "navigatetoTabbedVC", sender: nil)
+        }, onError: {
+            self.notifyUser()
+            SVProgressHUD.dismiss()
+        })
  }
     
     // Auto log in
-    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
