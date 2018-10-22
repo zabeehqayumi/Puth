@@ -14,6 +14,10 @@ import SVProgressHUD
 
 
 class SignInViewController: UIViewController {
+    
+    static var signInInstance = SignInViewController()
+    
+    
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     
@@ -68,9 +72,7 @@ class SignInViewController: UIViewController {
         }
         signInButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
         signInButton.isEnabled = true
-        
-        
-        
+
         
     }
     
@@ -86,7 +88,13 @@ class SignInViewController: UIViewController {
     
     
     @IBAction func signInButtonPressed(_ sender: Any) {
+        
+        //calling from auth services
+        
+       // AuthServices.shared.signIn()
+        
         SVProgressHUD.show()
+        
         
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if error != nil{
@@ -99,14 +107,15 @@ class SignInViewController: UIViewController {
                 self.performSegue(withIdentifier: "navigatetoTabbedVC", sender: nil)
                 SVProgressHUD.dismiss()
             }
-            
- 
-            
+
             
         }
-    }
+        
+
+ }
     
     // Auto log in
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

@@ -13,6 +13,10 @@ import FirebaseStorage
 import SVProgressHUD
 
 
+
+
+
+
 class SignUPViewController: UIViewController {
     
     var selectedImage : UIImage?
@@ -82,6 +86,8 @@ class SignUPViewController: UIViewController {
         
         // calling
         handleTextField()
+        signUpButton.isEnabled = false
+
 
 
     }

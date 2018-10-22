@@ -13,6 +13,7 @@
 		4E0ECDE7215B38B5007276E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E0ECDE5215B38B5007276E4 /* LaunchScreen.storyboard */; };
 		4E0ECDEF215B3BD7007276E4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0ECDEE215B3BD7007276E4 /* SignInViewController.swift */; };
 		4E0ECDF1215B4084007276E4 /* SignUPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0ECDF0215B4084007276E4 /* SignUPViewController.swift */; };
+		4E9CA20D217D478D008E0502 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9CA20C217D478D008E0502 /* AuthServices.swift */; };
 		4EA7332221607ADD003342B7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EA7332121607ADC003342B7 /* GoogleService-Info.plist */; };
 		4EF6C26A215F2E83009815EF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF6C269215F2E83009815EF /* HomeViewController.swift */; };
 		4EF6C26C215F2E8C009815EF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF6C26B215F2E8C009815EF /* SearchViewController.swift */; };
@@ -37,6 +38,7 @@
 		4E0ECDE8215B38B5007276E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E0ECDEE215B3BD7007276E4 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		4E0ECDF0215B4084007276E4 /* SignUPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUPViewController.swift; sourceTree = "<group>"; };
+		4E9CA20C217D478D008E0502 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
 		4EA7332121607ADC003342B7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4EF6C269215F2E83009815EF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4EF6C26B215F2E8C009815EF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				4E0ECDDC215B38B4007276E4 /* AppDelegate.swift */,
+				4E9CA20C217D478D008E0502 /* AuthServices.swift */,
 				4EF6C284215F4EB9009815EF /* ViewControllers */,
 				4EF6C283215F4E7A009815EF /* StoryBoards */,
 				4E0ECDE3215B38B5007276E4 /* Assets.xcassets */,
@@ -276,6 +279,7 @@
 				4E0ECDDD215B38B4007276E4 /* AppDelegate.swift in Sources */,
 				4EF6C270215F2E9E009815EF /* ActivityViewController.swift in Sources */,
 				4EF6C26A215F2E83009815EF /* HomeViewController.swift in Sources */,
+				4E9CA20D217D478D008E0502 /* AuthServices.swift in Sources */,
 				4EF6C272215F2EA8009815EF /* ProfileViewController.swift in Sources */,
 				4EF6C26E215F2E94009815EF /* CameraViewController.swift in Sources */,
 			);
