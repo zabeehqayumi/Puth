@@ -51,7 +51,7 @@ class SignInViewController: UIViewController {
         handleTextField()
         // for touching any where of sign in view controller
         
-
+        
     }
     
     // for hiding keyboard
@@ -77,19 +77,19 @@ class SignInViewController: UIViewController {
         }
         signInButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
         signInButton.isEnabled = true
-
+        
         
     }
     
     
-        func notifyUser(){
+    func notifyUser(){
         let alert = UIAlertController(title: "Invalid Username or Password!", message: "email or password you entered does not match our database. ", preferredStyle: .alert)
         let action = UIAlertAction(title: "Try again", style: .default, handler: nil)
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
     
-
+    
     
     
     @IBAction func signInButtonPressed(_ sender: Any) {
@@ -105,17 +105,17 @@ class SignInViewController: UIViewController {
             self.notifyUser()
             SVProgressHUD.dismiss()
         })
- }
+    }
     
     // Auto log in
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if Auth.auth().currentUser != nil{
-        self.performSegue(withIdentifier: "navigatetoTabbedVC", sender: nil)
-
+            self.performSegue(withIdentifier: "navigatetoTabbedVC", sender: nil)
+            
         }
         
     }
-
+    
 }

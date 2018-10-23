@@ -16,14 +16,64 @@
                     <view key="view" contentMode="scaleToFill" id="FZf-7F-nq2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q2O-fz-V1M">
+                                <rect key="frame" x="0.0" y="64" width="375" height="100"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeHolder" translatesAutoresizingMaskIntoConstraints="NO" id="loB-fb-tBO">
+                                        <rect key="frame" x="8" y="10" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="PJT-cM-gAW"/>
+                                            <constraint firstAttribute="width" constant="80" id="ctJ-mE-QMF"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oal-Xh-ceg">
+                                        <rect key="frame" x="96" y="10" width="271" height="80"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="oal-Xh-ceg" secondAttribute="trailing" constant="8" id="2CX-iW-qg9"/>
+                                    <constraint firstItem="oal-Xh-ceg" firstAttribute="leading" secondItem="loB-fb-tBO" secondAttribute="trailing" constant="8" id="2mI-N8-S8G"/>
+                                    <constraint firstItem="loB-fb-tBO" firstAttribute="top" secondItem="Q2O-fz-V1M" secondAttribute="top" constant="10" id="FR4-ia-Nux"/>
+                                    <constraint firstAttribute="height" constant="100" id="IqY-Ju-iAb"/>
+                                    <constraint firstItem="loB-fb-tBO" firstAttribute="leading" secondItem="Q2O-fz-V1M" secondAttribute="leading" constant="8" id="WIJ-44-jpR"/>
+                                    <constraint firstAttribute="bottom" secondItem="loB-fb-tBO" secondAttribute="bottom" constant="10" id="ZnV-qS-i4M"/>
+                                    <constraint firstItem="oal-Xh-ceg" firstAttribute="top" secondItem="Q2O-fz-V1M" secondAttribute="top" constant="10" id="oSE-YD-XLn"/>
+                                    <constraint firstAttribute="bottom" secondItem="oal-Xh-ceg" secondAttribute="bottom" constant="10" id="uTG-q4-Pad"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOa-HR-Y1x">
+                                <rect key="frame" x="8" y="609" width="359" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="DGa-DK-CPe"/>
+                                </constraints>
+                                <state key="normal" title="Share">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="XOa-HR-Y1x" firstAttribute="leading" secondItem="DIQ-9U-rgl" secondAttribute="leading" constant="8" id="J5F-Do-9HR"/>
+                            <constraint firstItem="Q2O-fz-V1M" firstAttribute="leading" secondItem="DIQ-9U-rgl" secondAttribute="leading" id="TEU-cF-Xrt"/>
+                            <constraint firstItem="Q2O-fz-V1M" firstAttribute="top" secondItem="DIQ-9U-rgl" secondAttribute="top" id="b6z-Ww-dOh"/>
+                            <constraint firstItem="Q2O-fz-V1M" firstAttribute="trailing" secondItem="DIQ-9U-rgl" secondAttribute="trailing" id="hFt-Mi-fQh"/>
+                            <constraint firstItem="DIQ-9U-rgl" firstAttribute="bottom" secondItem="XOa-HR-Y1x" secondAttribute="bottom" constant="8" id="sLa-kb-bNe"/>
+                            <constraint firstItem="DIQ-9U-rgl" firstAttribute="trailing" secondItem="XOa-HR-Y1x" secondAttribute="trailing" constant="8" id="veo-2g-6lb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="DIQ-9U-rgl"/>
                     </view>
                     <navigationItem key="navigationItem" title="Camera" id="BbJ-Sg-OgT"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fip-um-x08" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4100" y="104"/>
+            <point key="canvasLocation" x="4100" y="103.89805097451276"/>
         </scene>
         <!--Camera-->
         <scene sceneID="tGC-92-K4j">
@@ -45,4 +95,7 @@
             <point key="canvasLocation" x="4100" y="-707"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="placeHolder" width="600" height="600"/>
+    </resources>
 </document>

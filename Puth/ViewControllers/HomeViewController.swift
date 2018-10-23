@@ -10,11 +10,11 @@ import UIKit
 import FirebaseAuth
 
 class HomeViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        
+        
     }
     
     @IBAction func logOutButtonPressed(_ sender: Any) {

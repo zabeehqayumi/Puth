@@ -182,13 +182,15 @@ class SignUPViewController: UIViewController {
                                             "profileImageUrl": profileImageUrl]) // self?.globalUrl])
                     
                     
+                    
                 }
                 
                 SVProgressHUD.showSuccess(withStatus: "Successfully created")
                 self?.performSegue(withIdentifier: "navigatetoTabbedVCSignUP", sender: nil)
-
+                
                 
             })
+            
         }
     }
     
