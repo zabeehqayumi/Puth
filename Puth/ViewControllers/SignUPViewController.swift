@@ -16,7 +16,6 @@ import SVProgressHUD
 
 
 
-
 class SignUPViewController: UIViewController {
     
     var selectedImage : UIImage?
@@ -97,9 +96,9 @@ class SignUPViewController: UIViewController {
     }
     
     func handleTextField(){
-        userNameTextField.addTarget(self, action: #selector(SignUPViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
-        emailTextField.addTarget(self, action: #selector(SignUPViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
-        passwordTextField.addTarget(self, action: #selector(SignUPViewController.textFieldDidChange), for: UIControl.Event.editingChanged)
+        userNameTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
+        emailTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
+        passwordTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
         
     }
     
