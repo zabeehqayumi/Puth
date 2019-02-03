@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,20 +16,50 @@
                     <view key="view" contentMode="scaleToFill" id="UK0-RV-dRw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="82Z-p8-r2j">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostsCell" id="iQ3-Ib-Lkq">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iQ3-Ib-Lkq" id="QsE-YV-fNc">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="YDI-bw-ora" id="xoN-DW-Q0a"/>
+                                    <outlet property="delegate" destination="YDI-bw-ora" id="i6b-h3-zcm"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="82Z-p8-r2j" firstAttribute="leading" secondItem="C6y-0l-CEn" secondAttribute="leading" id="A5h-Bc-8RR"/>
+                            <constraint firstItem="82Z-p8-r2j" firstAttribute="trailing" secondItem="C6y-0l-CEn" secondAttribute="trailing" id="SZC-M7-B9p"/>
+                            <constraint firstItem="82Z-p8-r2j" firstAttribute="bottom" secondItem="C6y-0l-CEn" secondAttribute="bottom" id="Sm6-IW-Hyz"/>
+                            <constraint firstItem="82Z-p8-r2j" firstAttribute="top" secondItem="UK0-RV-dRw" secondAttribute="top" id="Tht-wt-Dd3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="C6y-0l-CEn"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="UOD-i7-FqO">
                         <barButtonItem key="rightBarButtonItem" title="Log out" id="Bjp-Ip-cSe">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="logOutButtonPressed:" destination="YDI-bw-ora" id="pE5-Xl-KCv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="82Z-p8-r2j" id="5Qz-GO-KbR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2c6-uX-C3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2385" y="10"/>
+            <point key="canvasLocation" x="2384.8000000000002" y="9.4452773613193415"/>
         </scene>
         <!--Home-->
         <scene sceneID="uvk-oz-17l">

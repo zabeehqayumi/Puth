@@ -17,15 +17,18 @@ class SignInViewController: UIViewController {
     
     static var signInInstance = SignInViewController()
     
-    
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
-    
     @IBOutlet weak var signInButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupEmailAndPasswordField()
+        handleTextField()
+    }
+    
+    func setupEmailAndPasswordField() {
         //Designing the email textfield
         emailTextField.backgroundColor = .black
         emailTextField.tintColor = .white
@@ -46,15 +49,7 @@ class SignInViewController: UIViewController {
         bottomLayer1.frame = CGRect(x: 0, y: 29, width: 340, height: 0.7)
         bottomLayer1.backgroundColor = UIColor(red: 50/255, green: 50/255, blue: 25/255, alpha: 1).cgColor
         passwordTextField.layer.addSublayer(bottomLayer1)
-        
-        // calling
-        handleTextField()
-        // for touching any where of sign in view controller
-        
-        
     }
-    
-    // for hiding keyboard
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
@@ -78,9 +73,7 @@ class SignInViewController: UIViewController {
         signInButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
         signInButton.isEnabled = true
         
-        
     }
-    
     
     func notifyUser(){
         let alert = UIAlertController(title: "Invalid Username or Password!", message: "email or password you entered does not match our database. ", preferredStyle: .alert)
@@ -88,9 +81,6 @@ class SignInViewController: UIViewController {
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
-    
-    
-    
     
     @IBAction func signInButtonPressed(_ sender: Any) {
         

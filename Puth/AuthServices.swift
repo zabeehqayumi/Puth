@@ -21,7 +21,7 @@ class AuthServices: UIViewController {
  // sign in method
     
     static func signIn(email: String, password: String, onSuccess: @escaping () -> Void, onError: @escaping () -> Void) {
-        SVProgressHUD.show()
+        SVProgressHUD.show(withStatus: "Waiting...")
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if error != nil{
                 onError()
@@ -34,8 +34,6 @@ class AuthServices: UIViewController {
     
     
    // sign up method
-    
-    
     
     static func signUp(username: String, email: String, password: String, onSuccess: @escaping () -> Void, onError: @escaping () -> Void) {
         SVProgressHUD.show()

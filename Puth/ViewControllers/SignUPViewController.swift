@@ -12,34 +12,27 @@ import Firebase
 import FirebaseStorage
 import SVProgressHUD
 
-
-
-
-
 class SignUPViewController: UIViewController {
     
     var selectedImage : UIImage?
     var globalUrl : String = ""
     
     @IBOutlet weak var signUpButton: UIButton!
-    
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var userNameTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupEmailAndPasswordField()
+        uploadProfileImage()
+        handleTextField()
         
-        
-        
-        
-        //Profile Picture
-        profilePicture.layer.cornerRadius = 40 
-        profilePicture.clipsToBounds = true
-        
+    }
+    
+    func setupEmailAndPasswordField() {
         //Username
         userNameTextField.backgroundColor = .black
         userNameTextField.tintColor = .white
@@ -74,28 +67,24 @@ class SignUPViewController: UIViewController {
         bottomLayerPass.frame = CGRect(x: 0, y: 29, width: 340, height: 0.7)
         bottomLayerPass.backgroundColor = UIColor(red: 50/255, green: 50/255, blue: 25/255, alpha: 1).cgColor
         passwordTextField.layer.addSublayer(bottomLayerPass)
-        
-        
-        // Uploading image
-        
-        
+        signUpButton.isEnabled = false
+
+    }
+    
+    func uploadProfileImage() {
+        profilePicture.layer.cornerRadius = 40
+        profilePicture.clipsToBounds = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignUPViewController.handleSelectProfileImage))
         profilePicture.addGestureRecognizer(tapGesture)
         profilePicture.isUserInteractionEnabled = true
-        
-        // calling
-        handleTextField()
-        signUpButton.isEnabled = false
-        
-        
-        
+
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
     
-    func handleTextField(){
+    func handleTextField() {
         userNameTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
         emailTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
         passwordTextField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
@@ -103,7 +92,7 @@ class SignUPViewController: UIViewController {
     }
     
     @objc
-    func textFieldDidChange(){
+    func textFieldDidChange() {
         
         guard let username = userNameTextField.text, !username.isEmpty, let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
             signUpButton.setTitleColor(UIColor.lightText, for: UIControl.State.normal)
@@ -114,9 +103,7 @@ class SignUPViewController: UIViewController {
         signUpButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
         signUpButton.isEnabled = true
         
-        
     }
-    
     
     @objc func handleSelectProfileImage(){
         let pickerController = UIImagePickerController()
@@ -133,8 +120,6 @@ class SignUPViewController: UIViewController {
         view.endEditing(true)
         SVProgressHUD.show()
         self.createUser()
-        
-        
     }
     
     func createUser() {
@@ -150,13 +135,11 @@ class SignUPViewController: UIViewController {
                                 }
                                 guard let userID = user?.user.uid else { return }
                                 
-                                print("## did create user")
                                 // once created, upload profile image if able
                                 if let profileImage = self?.selectedImage,
                                     let imageData = profileImage.jpegData(compressionQuality: 0.1) {
                                     self?.uploadPhoto(imageData, userID)
                                 }
-                                
         })
     }
     
@@ -180,16 +163,12 @@ class SignUPViewController: UIViewController {
                                             "email": self?.emailTextField.text!,
                                             "profileImageUrl": profileImageUrl]) // self?.globalUrl])
                     
-                    
-                    
                 }
                 
-                SVProgressHUD.showSuccess(withStatus: "Successfully created")
+                SVProgressHUD.showSuccess(withStatus: "Your account is successfully created")
                 self?.performSegue(withIdentifier: "navigatetoTabbedVCSignUP", sender: nil)
                 
-                
             })
-            
         }
     }
     

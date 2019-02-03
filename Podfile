@@ -12,6 +12,7 @@ pod 'Firebase/Auth'
 pod 'Firebase/Storage'
 pod 'Firebase/Database'
 pod 'SVProgressHUD'
+pod 'Nuke'
 
 
 
