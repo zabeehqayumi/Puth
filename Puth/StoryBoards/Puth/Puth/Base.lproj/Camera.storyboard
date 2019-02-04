@@ -78,6 +78,12 @@
                                 <action selector="removeAllDataTapped:" destination="Vjm-xR-HtR" id="q95-GR-eyq"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="Ci2-3u-Vee">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="cameraButtonTapped:" destination="Vjm-xR-HtR" id="mxj-wd-T3u"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="captionTextView" destination="oal-Xh-ceg" id="nOy-tf-K6c"/>

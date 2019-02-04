@@ -11,8 +11,9 @@ import FirebaseAuth
 import Firebase
 import FirebaseStorage
 import SVProgressHUD
+import ImagePicker
 
-class CameraViewController: UIViewController {
+class CameraViewController: UIViewController, UITextViewDelegate, ImagePickerDelegate {
     
     var selectedImage : UIImage?
     let photoID = NSUUID().uuidString
@@ -25,6 +26,10 @@ class CameraViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        captionTextView.delegate = self
+        captionTextView.text = "#write you comments ... "
+        captionTextView.textColor = UIColor.lightGray
         
         gestureRecognizerForPic()
     }
@@ -65,6 +70,32 @@ class CameraViewController: UIViewController {
         
     }
     
+    @IBAction func cameraButtonTapped(_ sender: Any) {
+        let imagePickerController = ImagePickerController()
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
+        imagePickerController.imageLimit = 5
+
+    }
+    
+    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]){
+        
+    }
+    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]){
+        
+        guard let image = images.first else {
+            dismiss(animated: true, completion: nil)
+            return
+        }
+        selectedImage = image
+        photo.image = image
+        dismiss(animated: true, completion: nil)
+        
+        
+    }
+    func cancelButtonDidPress(_ imagePicker: ImagePickerController){
+        
+    }
     @IBAction func removeAllDataTapped(_ sender: Any) {
         selectedImage = nil
         captionTextView.text = ""
@@ -138,6 +169,20 @@ extension CameraViewController : UIImagePickerControllerDelegate, UINavigationCo
 
 
 extension CameraViewController {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "#write you comments ... "
+            textView.textColor = UIColor.lightGray
+        }
+    }
     
     func checkPostPicture() {
         if selectedImage != nil {

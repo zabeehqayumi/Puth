@@ -19,18 +19,16 @@ class HomeViewController: UIViewController {
     var arrOfData = [Model]()
     
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadPosts()
         
-//        var posts = Model(captionText: "caption", photoUrlString: "newPostUrl")
-//        print(posts.caption)
-//        print(posts.photoUrl)
-        
-        
+        let nib = UINib(nibName: "HomeViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "HomeCell")
         
     }
-    
+        
     func loadPosts() {
 
         Database.database().reference().child("Posts").observe(.childAdded) { (DataSnapshot) in
@@ -69,16 +67,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return arrOfData.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostsCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell", for: indexPath) as! HomeViewCell
         
-        cell.textLabel?.text = arrOfData[indexPath.row].caption
+        cell.commentsLabel.text = arrOfData[indexPath.row].caption
         
-        if let imageView = cell.imageView, let url = URL(string: arrOfData[indexPath.row].photoUrl!){
+        if let imageView = cell.postImage, let url = URL(string: arrOfData[indexPath.row].photoUrl!){
             Nuke.loadImage(
                 with: url,
                 options: ImageLoadingOptions(
-                    placeholder: UIImage(named: ""),
-                    transition: .fadeIn(duration: 0.05)
+                    placeholder: UIImage(named: "placeHolder"),
+                    transition: .fadeIn(duration: 0.01)
                 ),
                 //
                 into: imageView
@@ -89,7 +87,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 400
     }
 }
 
