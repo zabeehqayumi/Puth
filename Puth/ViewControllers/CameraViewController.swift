@@ -70,6 +70,7 @@ class CameraViewController: UIViewController, UITextViewDelegate, ImagePickerDel
         
     }
     
+    
     @IBAction func cameraButtonTapped(_ sender: Any) {
         let imagePickerController = ImagePickerController()
         imagePickerController.delegate = self

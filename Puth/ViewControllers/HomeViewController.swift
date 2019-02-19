@@ -14,7 +14,7 @@ import FirebaseStorage
 import SVProgressHUD
 import Nuke
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, HomeViewCellDelegate {
     
     var arrOfData = [Model]()
     
@@ -25,8 +25,32 @@ class HomeViewController: UIViewController {
         loadPosts()
         
         let nib = UINib(nibName: "HomeViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "HomeCell")
+        tableView.register(nib, forCellReuseIdentifier: "HomeCellOne")
         
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+    }
+    
+    func updateMainScreen(_ sender: HomeViewCell) {
+        let alert = UIAlertController(title: "Please select", message: "Choose from actions", preferredStyle: .actionSheet)
+        let action1 = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        let action2 = UIAlertAction(title: "Delete", style: .destructive, handler: nil)
+        let action3 = UIAlertAction(title: "Share", style: .default, handler: nil)
+        let action4 = UIAlertAction(title: "Copy", style: .default, handler: nil)
+        let action5 = UIAlertAction(title: "Post", style: .default, handler: nil)
+        let action6 = UIAlertAction(title: "Send", style: .default, handler: nil)
+
+
+        alert.addAction(action2)
+        alert.addAction(action3)
+        alert.addAction(action4)
+        alert.addAction(action5)
+        alert.addAction(action6)
+        alert.addAction(action1)
+        
+        present(alert, animated: true, completion: nil)
+
     }
         
     func loadPosts() {
@@ -67,15 +91,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return arrOfData.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell", for: indexPath) as! HomeViewCell
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCellOne", for: indexPath) as! HomeViewCell
+        cell.delegete = self
         cell.commentsLabel.text = arrOfData[indexPath.row].caption
         
         if let imageView = cell.postImage, let url = URL(string: arrOfData[indexPath.row].photoUrl!){
             Nuke.loadImage(
                 with: url,
                 options: ImageLoadingOptions(
-                    placeholder: UIImage(named: "placeHolder"),
+                    placeholder: UIImage(named: "loadingState"),
                     transition: .fadeIn(duration: 0.01)
                 ),
                 //
